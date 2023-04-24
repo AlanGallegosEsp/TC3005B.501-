@@ -1,0 +1,26 @@
+.fecha {
+  display: flex;
+  flex-direction: column;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid #ececec;
+  background-color: #2a2a2a;
+  color: white;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.fecha_mes {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.fecha_anio {
+  font-size: 0.75rem;
+}
+
+.fecha_dia {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

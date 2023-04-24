@@ -1,0 +1,33 @@
+
+
+.tarea-contenedor {
+    width: 500px;
+    min-height: 60px;
+    background-color: #373737;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+
+.tarea-contenedor.completada {
+    background-color: #5a01a7;
+    text-decoration: line-through;
+    color: white;
+}
+
+.tarea-texto {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.tarea-icono {
+    color: lightgray;
+    font-size: 1.5rem;
+}
+

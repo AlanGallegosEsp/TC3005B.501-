@@ -1,0 +1,22 @@
+.lista-tareas {
+  background: lightgray;
+  padding: 10px 40px;
+  border-radius: 10px;
+  min-height: 500px;
+  min-width: 450px;
+}
+
+.lista-tareas.h1 {
+  color: darkmagenta;
+}
+
+.captura-boton {
+  font-size: 1.5rem;
+  margin: 15px;
+  background: #a109c3;
+  width: 80px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  color: white;
+}
+
