@@ -1,5 +1,6 @@
 import express,{ Request, response } from "express";
 import { AbstractControllers } from "../controllers/AbstractControllers";
+import db from "../models";
 
 
 class Server {
@@ -21,13 +22,19 @@ class Server {
         });
     }
 
+    
     private loadMiddlewares(middlewares: any[]){
         middlewares.forEach((middleware: any) => {
             this.app.use(middleware);
         });
+
+    }
+    private async connectDB(){
+        await db.sequelize.sync({force:true});
     }
 
-    public init(){
+    public async init(){
+        await this.connectDB();
         this.app.listen(this.port, () => {
             console.log(`Server::Running @'http://localhost:${this.port}'`);
         });
