@@ -1,23 +1,23 @@
 'use strict';
 
-import { Model } from "sequelize";
+import {Model} from 'sequelize';
 
-interface UserAttributes {
-  awsCognitoId: string;
-  name: string,
-  role: string,
-  email: string
+interface UserAttributes{
+  awsCognitoId:string,
+  name:string,
+  role:string,
+  email:string
 }
 
-export enum UserRole {
+export enum UserRoles{
   ADMIN = 'ADMIN',
-  SUPERVISOR = 'SUPERVISOR',
-  AGENT = 'AGENT',
-  CUSTOMER = 'CUSTOMER'
+  SUPERVISOR = "SUPERVISOR",
+  AGENT = "AGENT",
+  CUSTOMER = "CUSTOMER"
 }
 
-export default (sequelize: any, DataTypes: any) => {
-  class User extends Model<UserAttributes> implements UserAttributes{
+module.exports = (sequelize:any, DataTypes:any) => {
+  class User extends Model<UserAttributes> implements UserAttributes {
     awsCognitoId!: string;
     name!: string;
     role!: string;
@@ -29,16 +29,16 @@ export default (sequelize: any, DataTypes: any) => {
   User.init({
     awsCognitoId:{
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull:false,
       primaryKey: true
     },
     name: DataTypes.STRING,
-    role: {
-      type: DataTypes.string,
-      allowNull: false,
-      defaultValue: UserRole.CUSTOMER
-    },
-    email: DataTypes.STRING
+    email: DataTypes.STRING,
+    role:{
+      type:DataTypes.STRING,
+      allowNull:false,
+      defaultValue:UserRoles.CUSTOMER
+    }
   }, {
     sequelize,
     modelName: 'User',
