@@ -22,6 +22,11 @@ const ListaTareas = (props) => {
             const arrTareasNuevas = [tarea, ...arrTareas];
             setArrTareas(arrTareasNuevas);
         }
+        else{
+            alert("No puede estar vacio");
+        }
+
+
     };
 
     const completarTarea = (id) => {
