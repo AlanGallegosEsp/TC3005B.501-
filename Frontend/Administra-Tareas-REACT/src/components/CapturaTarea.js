@@ -25,7 +25,7 @@ const CapturaTarea = (props) => {
     // Hook de referencia
     const refInput = useRef(); // Apunta a un nodo
 
-    const agregarTareaHandle = (e) => {
+    const agregarTareaHandle = (e) => { 
         e.preventDefault();
         const nuevaTarea = 
         {

@@ -1,24 +1,27 @@
 /**
  * @file ListaTareas.js
- * @brief Componente que muestra una lista de tareas
+ * @brief Componente que muestra una lista de tareas y permite agregar nuevas tareas a la lista de tareas
  * @author Carlos Alan Gallegos Espindola
- * @version 1.0
- * @date 2023-04-17
- *
- */
+ * @version 2.0
+ * @date 2023-04-26
+*/
 
-import { Fragment } from "react";
-import { useState } from "react";
+import "../styles/ListaTareas.css";
+
+import { Fragment, useState } from "react";
 import CapturaTarea from "./CapturaTarea";
+import {MdAdd, MdClear} from "react-icons/md";
 import Tarea from "./Tarea";
 
 const ListaTareas = (props) => {
-    // Arreglo de tareas
     const [arrTareas, setArrTareas] = useState([]);
+    const [showCapturaTarea, setShowCapturaTarea] = useState(false);
 
     const agregarTarea = (tarea) => {
-        const arrTareasNuevas = [tarea, ...arrTareas];
-        setArrTareas(arrTareasNuevas);
+        if (tarea.texto !== "") {
+            const arrTareasNuevas = [tarea, ...arrTareas];
+            setArrTareas(arrTareasNuevas);
+        }
     };
 
     const completarTarea = (id) => {
@@ -36,9 +39,17 @@ const ListaTareas = (props) => {
         setArrTareas(arrTareasNuevas);
     };
 
+    const toggleCapturaTarea = () => {
+        setShowCapturaTarea(!showCapturaTarea);
+    };
+
     return (
         <Fragment>
-            <CapturaTarea onSubmit={agregarTarea} />
+            <button onClick={toggleCapturaTarea} className="toggle-button" >
+                {showCapturaTarea ? <MdClear/> : <MdAdd/> }
+            </button>
+            {showCapturaTarea && <CapturaTarea onSubmit={agregarTarea} />}
+
             <div className="lista-tareas">
                 {arrTareas.map((tarea) => {
                     return (
