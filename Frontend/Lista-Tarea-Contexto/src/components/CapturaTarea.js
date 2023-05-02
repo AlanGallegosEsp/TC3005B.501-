@@ -18,7 +18,7 @@ import {v4 as uuidv4} from "uuid";
 
 const CapturaTarea = (props) => {
     // Contexto
-    const [arrTareas, setArrTareas] = useContext(ContextoTareas);
+    const [ , , agregarTarea] = useContext(ContextoTareas);
 
     const [descripcionTarea, setDescripcionTarea] = useState("");
 
@@ -38,12 +38,9 @@ const CapturaTarea = (props) => {
             texto: descripcionTarea,
             completada: false
         }
-        // props.onSubmit(nuevaTarea);
-        // arrTareas.push(nuevaTarea);
-        // console.log(arrTareas);
-        const arrTareasNuevas = [nuevaTarea, ...arrTareas];
-        setArrTareas(arrTareasNuevas);
-    }
+
+        agregarTarea(nuevaTarea);
+    };
 
     return (
         <form className="tarea-forma" onSubmit={agregarTareaHandle}>

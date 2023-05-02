@@ -19,10 +19,10 @@ const ListaTareas = (props) => {
     //const [arrTareas, setArrTareas] = useState([]);
     const [arrTareas] = useContext(ContextoTareas);
 
-    const agregarTarea = (tarea) => {
-        const arrTareasNuevas = [tarea, ...arrTareas];
-        //setArrTareas(arrTareasNuevas);
-    };
+    // const agregarTarea = (tarea) => {
+    //     const arrTareasNuevas = [tarea, ...arrTareas];
+    //     setArrTareas(arrTareasNuevas);
+    // };
 
     const completarTarea = (id) => {
         const arrTareasNuevas = arrTareas.map((tarea) => {

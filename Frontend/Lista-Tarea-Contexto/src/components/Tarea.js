@@ -11,14 +11,19 @@ import {MdOutlineDeleteForever} from "react-icons/md";
 
 
 import React from "react";
+import { useContext } from "react";
+
+import { ContextoTareas } from "../App";
 
 const Tarea = (props) => {
+
+    const [ , , , completarTarea , eliminarTarea] = useContext(ContextoTareas);
 
     const estiloTarea = "tarea-contenedor " + (props.completada ? "completada" : "");
 
     return <div className={estiloTarea}>
-        <div className="tarea-texto" onClick={ () => props.completarTarea(props.id)}>{props.texto}</div>
-        <div className="tarea-icono" onClick={ () => props.eliminarTarea(props.id)}>
+        <div className="tarea-texto" onClick={ () => completarTarea(props.id)}>{props.texto}</div>
+        <div className="tarea-icono" onClick={ () => eliminarTarea(props.id)}>
             <MdOutlineDeleteForever />
         </div>
     </div>;
