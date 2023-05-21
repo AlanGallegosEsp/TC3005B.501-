@@ -1,7 +1,13 @@
-// Ejemplo con las páginas de un sitio para probar react-router
+/**
+ * @author AlanGallegosEsp
+ * @description Componente paginas de la aplicación
+ * @version 1.0
+ * @date 5/21/2023
+ */
 
 import { Fragment } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Bandera, BanderaPais } from "./Bandera";
 
 export function Home() {
   return (
@@ -9,10 +15,12 @@ export function Home() {
       <h1>Tecnológico de Monterrey</h1>
 
       <nav>
-        <Link to="about">about</Link>
-        <Link to="events">events</Link>
-        <Link to="products">products</Link>
-        <Link to="contact">contact</Link>
+        <Link to="about">about     </Link>
+        <Link to="events">events     </Link>
+        <Link to="products">products     </Link>
+        <Link to="contact">contact     </Link>
+       <br /> 
+        <Link to="bandera">bandera</Link>
       </nav>
 
       <p>
